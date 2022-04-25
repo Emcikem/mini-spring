@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory.config;
+package com.lyq.minispring.factory.factory.config;
 
 /**
  * 单例注册表

@@ -1,4 +1,4 @@
-package com.lyq.minispring;
+package com.lyq.minispring.service;
 
 public class HelloService {
     public String sayHello() {

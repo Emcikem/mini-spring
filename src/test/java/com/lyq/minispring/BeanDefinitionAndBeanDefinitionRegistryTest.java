@@ -1,8 +1,9 @@
 package com.lyq.minispring;
 
-import com.lyq.minispring.factory.config.BeanDefinition;
-import com.lyq.minispring.factory.support.DefaultListableBeanFactory;
-import org.junit.jupiter.api.Test;
+import com.lyq.minispring.factory.factory.config.BeanDefinition;
+import com.lyq.minispring.factory.factory.support.DefaultListableBeanFactory;
+import com.lyq.minispring.service.HelloService;
+import org.junit.Test;
 
 public class BeanDefinitionAndBeanDefinitionRegistryTest {
 

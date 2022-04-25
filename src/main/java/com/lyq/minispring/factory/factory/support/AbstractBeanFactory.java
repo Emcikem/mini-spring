@@ -1,6 +1,6 @@
-package com.lyq.minispring.factory.support;
+package com.lyq.minispring.factory.factory.support;
 
-import com.lyq.minispring.factory.config.BeanDefinition;
+import com.lyq.minispring.factory.factory.config.BeanDefinition;
 import com.lyq.minispring.factory.factory.BeanFactory;
 
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
