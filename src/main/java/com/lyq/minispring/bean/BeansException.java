@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory;
+package com.lyq.minispring.bean;
 
 public class BeansException extends RuntimeException{
 

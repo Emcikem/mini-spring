@@ -1,12 +1,12 @@
-package com.lyq.minispring;
+package com.lyq.minispring.ioc;
 
-import com.lyq.minispring.bean.Car;
-import com.lyq.minispring.bean.Person;
-import com.lyq.minispring.factory.PropertyValue;
-import com.lyq.minispring.factory.PropertyValues;
-import com.lyq.minispring.factory.factory.config.BeanDefinition;
-import com.lyq.minispring.factory.factory.config.BeanReference;
-import com.lyq.minispring.factory.factory.support.DefaultListableBeanFactory;
+import com.lyq.minispring.ioc.bean.Car;
+import com.lyq.minispring.ioc.bean.Person;
+import com.lyq.minispring.bean.PropertyValue;
+import com.lyq.minispring.bean.PropertyValues;
+import com.lyq.minispring.bean.factory.config.BeanDefinition;
+import com.lyq.minispring.bean.factory.config.BeanReference;
+import com.lyq.minispring.bean.factory.support.DefaultListableBeanFactory;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

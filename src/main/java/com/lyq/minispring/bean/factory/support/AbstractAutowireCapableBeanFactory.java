@@ -1,10 +1,10 @@
-package com.lyq.minispring.factory.factory.support;
+package com.lyq.minispring.bean.factory.support;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.lyq.minispring.factory.BeansException;
-import com.lyq.minispring.factory.PropertyValue;
-import com.lyq.minispring.factory.factory.config.BeanDefinition;
-import com.lyq.minispring.factory.factory.config.BeanReference;
+import com.lyq.minispring.bean.BeansException;
+import com.lyq.minispring.bean.PropertyValue;
+import com.lyq.minispring.bean.factory.config.BeanDefinition;
+import com.lyq.minispring.bean.factory.config.BeanReference;
 
 /**
  * 创建bean，并填充属性

@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory.factory;
+package com.lyq.minispring.bean.factory;
 
 public interface BeanFactory {
 

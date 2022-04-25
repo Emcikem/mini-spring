@@ -1,7 +1,7 @@
-package com.lyq.minispring.factory.factory.support;
+package com.lyq.minispring.bean.factory.support;
 
-import com.lyq.minispring.factory.BeansException;
-import com.lyq.minispring.factory.factory.config.BeanDefinition;
+import com.lyq.minispring.bean.BeansException;
+import com.lyq.minispring.bean.factory.config.BeanDefinition;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package com.lyq.minispring.factory.factory.config;
+package com.lyq.minispring.bean.factory.config;
 
-import com.lyq.minispring.factory.PropertyValues;
+import com.lyq.minispring.bean.PropertyValues;
 
 /**
  * BeanDefinition实例保存bean的信息，包括class类型、方法构造参数、是否为单例等，此处简化只包含class类型和bean属性

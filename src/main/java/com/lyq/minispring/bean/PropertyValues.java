@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory;
+package com.lyq.minispring.bean;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory;
+package com.lyq.minispring.bean;
 
 /**
  * bean属性消息

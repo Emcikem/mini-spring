@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory.factory.config;
+package com.lyq.minispring.bean.factory.config;
 
 /**
  * 一个bean对另一个bean的引用

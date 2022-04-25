@@ -1,4 +1,4 @@
-package com.lyq.minispring.bean;
+package com.lyq.minispring.ioc.bean;
 
 public class Car {
 
