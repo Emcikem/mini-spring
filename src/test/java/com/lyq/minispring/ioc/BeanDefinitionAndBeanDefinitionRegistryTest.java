@@ -1,8 +1,8 @@
-package com.lyq.minispring;
+package com.lyq.minispring.ioc;
 
-import com.lyq.minispring.factory.factory.config.BeanDefinition;
-import com.lyq.minispring.factory.factory.support.DefaultListableBeanFactory;
-import com.lyq.minispring.service.HelloService;
+import com.lyq.minispring.bean.factory.config.BeanDefinition;
+import com.lyq.minispring.bean.factory.support.DefaultListableBeanFactory;
+import com.lyq.minispring.ioc.service.HelloService;
 import org.junit.Test;
 
 public class BeanDefinitionAndBeanDefinitionRegistryTest {

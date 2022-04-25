@@ -1,4 +1,4 @@
-package com.lyq.minispring.factory.factory;
+package com.lyq.minispring.bean.factory;
 
 /**
  * bean创建的工厂模式

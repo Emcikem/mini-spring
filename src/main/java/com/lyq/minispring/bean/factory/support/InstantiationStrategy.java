@@ -1,6 +1,6 @@
-package com.lyq.minispring.factory.factory.support;
+package com.lyq.minispring.bean.factory.support;
 
-import com.lyq.minispring.factory.factory.config.BeanDefinition;
+import com.lyq.minispring.bean.factory.config.BeanDefinition;
 
 /**
  * Bean的实例化策略
