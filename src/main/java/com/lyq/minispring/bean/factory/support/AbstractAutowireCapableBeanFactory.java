@@ -3,13 +3,15 @@ package com.lyq.minispring.bean.factory.support;
 import cn.hutool.core.bean.BeanUtil;
 import com.lyq.minispring.bean.BeansException;
 import com.lyq.minispring.bean.PropertyValue;
+import com.lyq.minispring.bean.factory.config.AutowireCapableBeanFactory;
 import com.lyq.minispring.bean.factory.config.BeanDefinition;
 import com.lyq.minispring.bean.factory.config.BeanReference;
 
 /**
  * 创建bean，并填充属性
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
+        implements AutowireCapableBeanFactory {
 
 
     private InstantiationStrategy instantiationStrategy = new SimpleInstantiationStrategy();

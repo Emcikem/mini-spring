@@ -7,5 +7,9 @@ import com.lyq.minispring.bean.factory.config.BeanDefinition;
  */
 public interface BeanDefinitionRegistry {
 
+    /**
+     * 向注册表中注册BeanDefinition
+     */
     void registerBeanDefinitions(String beanName, BeanDefinition beanDefinition);
+
 }
