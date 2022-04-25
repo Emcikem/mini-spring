@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.lyq.minispring.factory.BeansException;
 import com.lyq.minispring.factory.PropertyValue;
 import com.lyq.minispring.factory.factory.config.BeanDefinition;
+import com.lyq.minispring.factory.factory.config.BeanReference;
 
 /**
  * 创建bean，并填充属性
@@ -22,7 +23,6 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
      * 创建实例并且放入bean缓存池中
      */
     protected Object doCreateBean(String beanName, BeanDefinition beanDefinition) {
-        Class<?> beanClass = beanDefinition.getBeanClass();
         Object bean;
         try {
             bean = createBeanInstance(beanDefinition);
@@ -45,6 +45,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             for (PropertyValue propertyValue : beanDefinition.getPropertyValues().getPropertyValues()) {
                 String name = propertyValue.getName();
                 Object value = propertyValue.getValue();
+
+                if (value instanceof BeanReference) {
+                    // beanA依赖beanB，先实例化B
+                    BeanReference beanReference = (BeanReference) value;
+                    value = getBean(beanReference.getBeanName());
+                }
 
                 // 通过反射设置属性
                 BeanUtil.setFieldValue(bean, name, value);
