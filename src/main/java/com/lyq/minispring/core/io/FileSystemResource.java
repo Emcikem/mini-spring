@@ -9,24 +9,25 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 /**
- * 文件系统资源的实现类
+ * @author derekyi
+ * @date 2020/11/25
  */
-public class FileSystemResource implements Resource{
+public class FileSystemResource implements Resource {
 
-    private final String filePath;
+	private final String filePath;
 
-    public FileSystemResource(String filePath) {
-        this.filePath = filePath;
-    }
+	public FileSystemResource(String filePath) {
+		this.filePath = filePath;
+	}
 
-    @Override
-    public InputStream getInputStream() throws IOException {
+	@Override
+	public InputStream getInputStream() throws IOException {
 
-        try {
-            Path path = new File(this.filePath).toPath();
-            return Files.newInputStream(path);
-        } catch (NoSuchFileException ex) {
-            throw new FileNotFoundException(ex.getMessage());
-        }
-    }
+		try {
+			Path path = new File(this.filePath).toPath();
+			return Files.newInputStream(path);
+		} catch (NoSuchFileException ex) {
+			throw new FileNotFoundException(ex.getMessage());
+		}
+	}
 }

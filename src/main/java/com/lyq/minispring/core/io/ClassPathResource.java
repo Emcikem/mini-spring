@@ -5,22 +5,25 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * classpath下资源的实现类
+ * classpath下的资源
+ *
+ * @author derekyi
+ * @date 2020/11/25
  */
-public class ClassPathResource implements Resource{
+public class ClassPathResource implements Resource {
 
-    private final String path;
+	private final String path;
 
-    public ClassPathResource(String path) {
-        this.path = path;
-    }
+	public ClassPathResource(String path) {
+		this.path = path;
+	}
 
-    @Override
-    public InputStream getInputStream() throws IOException {
-        InputStream is = this.getClass().getClassLoader().getResourceAsStream(this.path);
-        if (is == null) {
-            throw new FileNotFoundException(this.path + " cannot be opened because it does not exist");
-        }
-        return is;
-    }
+	@Override
+	public InputStream getInputStream() throws IOException {
+		InputStream is = this.getClass().getClassLoader().getResourceAsStream(this.path);
+		if (is == null) {
+			throw new FileNotFoundException(this.path + " cannot be opened because it does not exist");
+		}
+		return is;
+	}
 }
