@@ -5,10 +5,7 @@ import com.lyq.minispring.beans.factory.support.DefaultListableBeanFactory;
 import com.lyq.minispring.test.ioc.service.HelloService;
 import org.junit.Test;
 
-/**
- * @author derekyi
- * @date 2020/11/24
- */
+
 public class BeanDefinitionAndBeanDefinitionRegistryTest {
 
 	@Test

@@ -4,8 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * @author derekyi
- * @date 2020/11/25
+ * 资源加载器的工厂模式
  */
 public class DefaultResourceLoader implements ResourceLoader {
 

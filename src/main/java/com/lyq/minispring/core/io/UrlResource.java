@@ -6,8 +6,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @author derekyi
- * @date 2020/11/25
+ * 网络资源的加载
  */
 public class UrlResource implements Resource {
 

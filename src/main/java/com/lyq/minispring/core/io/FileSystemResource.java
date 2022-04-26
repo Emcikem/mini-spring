@@ -9,8 +9,7 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 /**
- * @author derekyi
- * @date 2020/11/25
+ * 系统文件的加载器
  */
 public class FileSystemResource implements Resource {
 

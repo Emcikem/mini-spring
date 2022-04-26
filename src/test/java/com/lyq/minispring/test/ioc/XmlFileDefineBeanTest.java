@@ -8,10 +8,7 @@ import com.lyq.minispring.test.ioc.bean.Car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * @author derekyi
- * @date 2020/11/26
- */
+
 public class XmlFileDefineBeanTest {
 
 	@Test
