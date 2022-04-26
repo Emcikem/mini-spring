@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class XmlFileDefineBeanTest {
 
 	@Test
-	public void testXmlFile() throws Exception {
+	public void testXmlFile() {
 		DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 		XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
 		beanDefinitionReader.loadBeanDefinitions("classpath:spring.xml");

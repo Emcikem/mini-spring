@@ -39,12 +39,8 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
         super(registry, resourceLoader);
     }
 
-
     /**
-     * 用资源加载器加载出资源，然后根据resource的inputstream去loadBean
-     *
-     * @param location
-     * @throws BeansException
+     * 用资源加载器加载出资源，然后根据resource的inputStream去loadBean
      */
     @Override
     public void loadBeanDefinitions(String location) throws BeansException {
@@ -63,7 +59,6 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
             throw new BeansException("IOException parsing XML document from " + resource, ex);
         }
     }
-
 
     /**
      * 根据InputStream遍历所有的bean，
@@ -104,7 +99,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                 // 遍历bean的所有属性
                 for (int j = 0; j < bean.getChildNodes().getLength(); j++) {
                     if (bean.getChildNodes().item(j) instanceof Element
-                            && PROPERTY_ELEMENT.equals(bean.getNodeName())) {
+                            && PROPERTY_ELEMENT.equals(bean.getChildNodes().item(j).getNodeName())) {
                         // 解析property标签
                         Element property = (Element) bean.getChildNodes().item(j);
                         String nameAttribute = property.getAttribute(NAME_ATTRIBUTE);
