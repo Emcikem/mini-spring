@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 读取配置在xml文件中的bean定义信息
+ * XmlBeanDefinitionReader是从xml文件中读取的实现类
  */
 public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 

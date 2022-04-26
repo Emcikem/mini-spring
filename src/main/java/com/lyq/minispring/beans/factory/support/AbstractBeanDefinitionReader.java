@@ -6,6 +6,8 @@ import com.lyq.minispring.core.io.ResourceLoader;
 
 /**
  * bean读取
+ * BeanDefinitionReader需要有获取资源的能力，且读取bean定义信息后需要往容器中注册BeanDefinition，
+ * 因此BeanDefinitionReader的抽象实现类AbstractBeanDefinitionReader拥有ResourceLoader和BeanDefinitionRegistry两个属性
  */
 public abstract class AbstractBeanDefinitionReader implements BeanDefinitionReader {
 

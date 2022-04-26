@@ -5,7 +5,7 @@ import com.lyq.minispring.core.io.Resource;
 import com.lyq.minispring.core.io.ResourceLoader;
 
 /**
- * 读取bean定义信息即BeanDefinition的接口
+ * BeanDefinitionReader是读取bean定义信息的抽象接口
  *
  */
 public interface BeanDefinitionReader {
