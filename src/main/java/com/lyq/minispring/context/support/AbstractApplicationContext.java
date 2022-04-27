@@ -79,4 +79,27 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
      */
     public abstract ConfigurableListableBeanFactory getBeanFactory();
 
+    /**
+     * bean的摧毁
+     */
+    public void close(){
+        doClose();
+    }
+
+    /**
+     * 为了确保销毁方法在虚拟机关闭之前执行，向虚拟机中注册一个钩子方法
+     * 非web应用需要手动调用该方法
+     */
+    public void registerShutdownHook() {
+        Thread shutdownHook = new Thread(this::doClose);
+        Runtime.getRuntime().addShutdownHook(shutdownHook);
+    }
+
+    protected void doClose() {
+        destroyBeans();
+    }
+
+    protected void destroyBeans() {
+        getBeanFactory().destroySingletons();
+    }
 }
