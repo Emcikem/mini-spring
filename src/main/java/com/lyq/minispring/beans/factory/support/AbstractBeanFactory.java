@@ -40,7 +40,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry
 
 	@Override
 	public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
-		// TODO:什么鬼
+		// 有则覆盖 TODO:什么鬼
 		this.beanPostProcessors.remove(beanPostProcessor);
 		this.beanPostProcessors.add(beanPostProcessor);
 	}
