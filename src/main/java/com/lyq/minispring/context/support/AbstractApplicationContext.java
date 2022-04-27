@@ -33,7 +33,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     /**
      * 在bean实例化之前，执行BeanFactoryPostProcessor
-     * TODO: 检查是在xml中配置BeanFactoryPostProcessor吗？
+     * 程序通过实现BeanFactoryPostProcessor接口，然后配置在xml中
      */
     protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {
         Map<String, BeanFactoryPostProcessor> beanFactoryPostProcessorMap = beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);
@@ -53,16 +53,20 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
     @Override
     public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
-        return null;
+        return getBeanFactory().getBean(name, requiredType);
     }
 
     @Override
     public <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException {
-        return null;
+        return getBeanFactory().getBeansOfType(type);
     }
 
     public Object getBean(String name) throws BeansException {
-        return null;
+        return getBeanFactory().getBean(name);
+    }
+
+    public String[] getBeanDefinitionNames() {
+        return getBeanFactory().getBeanDefinitionNames();
     }
 
     /**
