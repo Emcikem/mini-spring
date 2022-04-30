@@ -4,9 +4,15 @@ import com.lyq.minispring.beans.BeansException;
 import com.lyq.minispring.beans.factory.ConfigurableListableBeanFactory;
 import com.lyq.minispring.beans.factory.config.BeanFactoryPostProcessor;
 import com.lyq.minispring.beans.factory.config.BeanPostProcessor;
+import com.lyq.minispring.context.ApplicationEvent;
+import com.lyq.minispring.context.ApplicationListener;
 import com.lyq.minispring.context.ConfigurableApplicationContext;
+import com.lyq.minispring.context.event.ApplicationEventMulticaster;
+import com.lyq.minispring.context.event.ContextRefreshedEvent;
+import com.lyq.minispring.context.event.SimpleApplicationEventMulticaster;
 import com.lyq.minispring.core.io.DefaultResourceLoader;
 
+import java.util.Collection;
 import java.util.Map;
 
 /**
@@ -15,24 +21,71 @@ import java.util.Map;
 public abstract class AbstractApplicationContext extends DefaultResourceLoader
         implements ConfigurableApplicationContext {
 
+    public static final String APPLICATION_EVENT_MULTICASTER_BEAN_NAME = "applicationEventMulticaster";
+
+    private ApplicationEventMulticaster applicationEventMulticaster;
+
 
     @Override
     public void refresh() throws BeansException {
-        // 创建BanFactory，并加载BeanDefinition
+        // 1.创建BanFactory，并加载BeanDefinition
         refreshBeanFactory();
+
+        // 2. 获取BeanFactory
         ConfigurableListableBeanFactory beanFactory = getBeanFactory();
 
-        //添加ApplicationContextAwareProcessor，让继承自ApplicationContextAware的bean能感知bean
+        // 3. 添加ApplicationContextAwareProcessor，让继承自ApplicationContextAware的bean能感知所属的Application
         beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
 
 
-        // 在bean实例化之前，执行BeanFactoryPostProcessor
+        // 3. 在bean实例化之前，执行BeanFactoryPostProcessor（调用在上下文中注册为bean的工厂处理器）
         invokeBeanFactoryPostProcessors(beanFactory);
 
-        // BeanPostProcessor需要提前与其他bean实例化之前注册
+        // 4. 在Bean实例化之前，BeanPostProcessor需要提前与其他bean实例化之前注册
         registerBeanPostProcessors(beanFactory);
 
+        // 5. 提前实例化单例Bean对象
         beanFactory.preInstantiateSingletons();
+
+        // 7. 注册事件监听
+        registerListeners();
+
+        // 6. 初始化事件发布者
+        initApplicationEventMulticaster();
+
+        // 8. 发布容器刷新完成事件
+        finishRefresh();
+    }
+
+    /**
+     * 发布容器刷新完成事件
+     */
+    private void finishRefresh() {
+        publishEvent(new ContextRefreshedEvent(this));
+    }
+
+    @Override
+    public void publishEvent(ApplicationEvent event) {
+        applicationEventMulticaster.multicastEvent(event);
+    }
+
+    /**
+     * 初始化事件发布者
+     */
+    protected void initApplicationEventMulticaster() {
+        ConfigurableListableBeanFactory beanFactory = getBeanFactory();
+        applicationEventMulticaster = new SimpleApplicationEventMulticaster(beanFactory);
+        beanFactory.addSingleton(APPLICATION_EVENT_MULTICASTER_BEAN_NAME, applicationEventMulticaster);
+    }
+
+    /**
+     * 注册事件监听器
+     */
+    protected void registerListeners() {
+        Collection<ApplicationListener> applicationListeners = getBeansOfType(ApplicationListener.class).values();
+        for (ApplicationListener<?> applicationListener : applicationListeners) {
+            applicationEventMulticaster.addApplicationListener(applicationListener);
+        }
     }
 
     /**
