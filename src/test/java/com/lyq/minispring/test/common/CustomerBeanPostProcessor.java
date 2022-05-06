@@ -1,8 +1,8 @@
-package com.lyq.minispring.test.ioc.common;
+package com.lyq.minispring.test.common;
 
 import com.lyq.minispring.beans.BeansException;
 import com.lyq.minispring.beans.factory.config.BeanPostProcessor;
-import com.lyq.minispring.test.ioc.bean.Car;
+import com.lyq.minispring.test.bean.Car;
 
 public class CustomerBeanPostProcessor implements BeanPostProcessor {
     @Override

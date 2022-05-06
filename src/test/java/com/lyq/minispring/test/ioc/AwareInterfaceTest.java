@@ -1,7 +1,7 @@
-package com.lyq.minispring.test.ioc.ioc;
+package com.lyq.minispring.test.ioc;
 
 import com.lyq.minispring.context.support.ClassPathXmlApplicationContext;
-import com.lyq.minispring.test.ioc.service.HelloService;
+import com.lyq.minispring.test.service.HelloService;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

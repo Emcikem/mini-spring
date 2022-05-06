@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc.bean;
+package com.lyq.minispring.test.bean;
 
 
 import com.lyq.minispring.beans.factory.DisposableBean;

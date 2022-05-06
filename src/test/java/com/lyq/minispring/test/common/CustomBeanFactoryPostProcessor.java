@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc.common;
+package com.lyq.minispring.test.common;
 
 import com.lyq.minispring.beans.BeansException;
 import com.lyq.minispring.beans.PropertyValue;

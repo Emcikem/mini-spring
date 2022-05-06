@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc.service;
+package com.lyq.minispring.test.service;
 
 
 import com.lyq.minispring.beans.BeansException;

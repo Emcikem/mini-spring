@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc.common.event;
+package com.lyq.minispring.test.common.event;
 
 import com.lyq.minispring.context.ApplicationListener;
 import com.lyq.minispring.context.event.ContextClosedEvent;

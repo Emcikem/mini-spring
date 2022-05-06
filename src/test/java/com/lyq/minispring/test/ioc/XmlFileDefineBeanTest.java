@@ -1,10 +1,10 @@
-package com.lyq.minispring.test.ioc.ioc;
+package com.lyq.minispring.test.ioc;
 
 import com.lyq.minispring.beans.factory.support.DefaultListableBeanFactory;
 import com.lyq.minispring.beans.factory.xml.XmlBeanDefinitionReader;
-import com.lyq.minispring.test.ioc.bean.Person;
+import com.lyq.minispring.test.bean.Person;
 import org.junit.Test;
-import com.lyq.minispring.test.ioc.bean.Car;
+import com.lyq.minispring.test.bean.Car;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

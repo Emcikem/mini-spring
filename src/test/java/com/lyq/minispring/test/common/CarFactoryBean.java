@@ -1,7 +1,7 @@
-package com.lyq.minispring.test.ioc.common;
+package com.lyq.minispring.test.common;
 
 import com.lyq.minispring.beans.factory.FactoryBean;
-import com.lyq.minispring.test.ioc.bean.Car;
+import com.lyq.minispring.test.bean.Car;
 
 public class CarFactoryBean implements FactoryBean<Car> {
 
