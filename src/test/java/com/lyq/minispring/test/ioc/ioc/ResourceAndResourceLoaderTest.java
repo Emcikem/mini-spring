@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc;
+package com.lyq.minispring.test.ioc.ioc;
 
 import cn.hutool.core.io.IoUtil;
 import com.lyq.minispring.core.io.DefaultResourceLoader;

@@ -41,5 +41,25 @@ ApplicationContext其实就是一个BeanFactory，因为他implement了BeanFacto
 ### spring的循环依赖
 TODO:听说是用三级缓存去实现的
 
+### spring中单例bean是线程安全吗？
+spring中的bean是否线程安全，和spring容器是无关的，spring容器只是提供了bean管理的能力，
+
+哪些bean会存在线程安全？ 
+bean有两类：无状态和有状态
+无状态的bean是指只会对其成员变量进行查询，不会修改
+有状态的bean是指会对其的成员变量进行修改。
+那么有状态的单例bean会存在线程安全的问题
+
+解决方法：
+1. 将singleton改成prototype，因为对于多例来说，每次获取都会new一个，是不存在多个线程共享的情况的。
+2. 避免定义可变的成员变量
+3. 可变成员变量保存在ThreadLocal中。因为threadlocal存在线程隔离的特性。
+
+### ioc中用到的设计模式
+1. 最简单的BeanFactory是工厂模式
+2. bean的模式方式是单例模式
+3. 策略模式:在ApplicationContext里面获取resource的资源时，针对不同的资源类型采取了不同的访问策略。
+4. 观察者模式：spring的事件机制
+
 ## spring aop
 

@@ -1,4 +1,4 @@
-package com.lyq.minispring.test.ioc;
+package com.lyq.minispring.test.ioc.ioc;
 
 import com.lyq.minispring.context.support.ClassPathXmlApplicationContext;
 import org.junit.Test;
