@@ -56,10 +56,22 @@ bean有两类：无状态和有状态
 3. 可变成员变量保存在ThreadLocal中。因为threadlocal存在线程隔离的特性。
 
 ### ioc中用到的设计模式
-1. 最简单的BeanFactory是工厂模式
-2. bean的模式方式是单例模式
-3. 策略模式:在ApplicationContext里面获取resource的资源时，针对不同的资源类型采取了不同的访问策略。
-4. 观察者模式：spring的事件机制
+1. 最简单的BeanFactory是简单工厂模式
+2. 工厂方法：factoryBean，spring在getBean时，会判断类是不是factoryBean类型，是的话就会调用getObject方法，而不是从BeanDefinition里面获取bean了
+3. 单例模式：bean的模式方式是单例模式
+4. 策略模式:在ApplicationContext里面获取resource的资源时，针对不同的资源类型采取了不同的访问策略。
+5. 观察者模式：spring的事件机制
 
+
+
+### spring的事件机制是什么
+![img.png](img.png)
 ## spring aop
+
+### 动态代理
+代理模式有静态代理和动态代理
+
+spring中的动态代理有JDK动态代理和CGLIB动态代理
+JDK动态代理是利用反射机制
+CGLIB动态代理是利用字节码
 
