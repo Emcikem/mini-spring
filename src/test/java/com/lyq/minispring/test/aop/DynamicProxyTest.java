@@ -1,11 +1,15 @@
 package com.lyq.minispring.test.aop;
 
 import com.lyq.minispring.aop.AdvisedSupport;
+import com.lyq.minispring.aop.MethodBeforeAdvice;
 import com.lyq.minispring.aop.MethodMatcher;
 import com.lyq.minispring.aop.TargetSource;
 import com.lyq.minispring.aop.aspectj.AspectJExpressionPointcut;
 import com.lyq.minispring.aop.framework.CglibAopProxy;
 import com.lyq.minispring.aop.framework.JdkDynamicAopProxy;
+import com.lyq.minispring.aop.framework.ProxyFactory;
+import com.lyq.minispring.aop.framework.adapter.MethodBeforeAdviceInterceptor;
+import com.lyq.minispring.test.common.WorldServiceBeforeAdvice;
 import com.lyq.minispring.test.common.WorldServiceInterceptor;
 import com.lyq.minispring.test.service.WorldService;
 import com.lyq.minispring.test.service.WorldServiceImpl;
@@ -50,6 +54,30 @@ public class DynamicProxyTest {
     @Test
     public void testCglibDynamicProxy() throws Exception {
         WorldService proxy = (WorldService) new CglibAopProxy(advisedSupport).getProxy();
+        proxy.explode();
+    }
+
+    @Test
+    public void testProxyFactory() throws Exception {
+        // 使用jdk动态代理
+        advisedSupport.setProxyTargetClass(false);
+        WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+        proxy.explode();
+
+        // 使用CGLIB动态代理
+        advisedSupport.setProxyTargetClass(true);
+        proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
+        proxy.explode();
+    }
+
+    @Test
+    public void testBeforeAdvice() throws Exception {
+        // 设置beforeAdvice
+        WorldServiceBeforeAdvice beforeAdvice = new WorldServiceBeforeAdvice();
+        MethodBeforeAdviceInterceptor methodInterceptor = new MethodBeforeAdviceInterceptor(beforeAdvice);
+        advisedSupport.setMethodInterceptor(methodInterceptor);
+
+        WorldService proxy = (WorldService) new ProxyFactory(advisedSupport).getProxy();
         proxy.explode();
     }
 
