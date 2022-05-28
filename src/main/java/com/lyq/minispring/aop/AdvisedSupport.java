@@ -10,10 +10,19 @@ import org.aopalliance.intercept.MethodInterceptor;
  */
 public class AdvisedSupport {
 
+    /**
+     * 目标代理类
+     */
     private TargetSource targetSource;
 
+    /**
+     * invoke方法，代理方法
+     */
     private MethodInterceptor methodInterceptor;
 
+    /**
+     * 代理匹配到哪些方法
+     */
     private MethodMatcher methodMatcher;
 
     public TargetSource getTargetSource() {

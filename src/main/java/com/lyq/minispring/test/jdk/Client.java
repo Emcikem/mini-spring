@@ -12,5 +12,7 @@ public class Client {
 
         HelloInterface helloInterface = (HelloInterface) proxy.getInstance();
         helloInterface.sayHello();
+
+        System.out.println(helloInterface.toString());
     }
 }

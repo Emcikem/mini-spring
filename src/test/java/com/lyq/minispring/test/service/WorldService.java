@@ -5,7 +5,9 @@ package com.lyq.minispring.test.service;
  * @create 2022/5/7
  * @desc
  */
-public interface WordService {
+public interface WorldService {
 
     void explode();
+
+    void test();
 }
